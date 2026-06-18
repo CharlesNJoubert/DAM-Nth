@@ -43,7 +43,9 @@ export function registerIpcHandlers(): void {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey)
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
+    // Override with GEMINI_MODEL in .env to try other models without a rebuild
+    const modelName = process.env.GEMINI_MODEL || 'gemini-flash-latest'
+    const model = genAI.getGenerativeModel({ model: modelName })
 
     try {
       const result = await model.generateContentStream(buildPrompt(req))

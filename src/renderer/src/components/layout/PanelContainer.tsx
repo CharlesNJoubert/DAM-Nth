@@ -6,6 +6,7 @@ import StrummingPanel from '../strumming/StrummingPanel'
 import VideosPanel from '../videos/VideosPanel'
 import LyricsPanel from '../lyrics/LyricsPanel'
 import TheoryPanel from '../theory/TheoryPanel'
+import FingerpickingPanel from '../fingerpicking/FingerpickingPanel'
 
 export default function PanelContainer() {
   const activePanel = useSongStore((s) => s.activePanel)
@@ -19,6 +20,7 @@ export default function PanelContainer() {
       {activePanel === 'strumming' && <StrummingPanel />}
       {activePanel === 'videos' && <VideosPanel />}
       {activePanel === 'theory' && <TheoryPanel />}
+      {activePanel === 'fingerpicking' && <FingerpickingPanel />}
     </main>
   )
 }

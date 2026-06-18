@@ -1,4 +1,4 @@
-export type PanelId = 'tabs' | 'sheet' | 'chords' | 'strumming' | 'videos' | 'lyrics' | 'theory'
+export type PanelId = 'tabs' | 'sheet' | 'chords' | 'strumming' | 'videos' | 'lyrics' | 'theory' | 'fingerpicking'
 
 export interface SongData {
   id: string

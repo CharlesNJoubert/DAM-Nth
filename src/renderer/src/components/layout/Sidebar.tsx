@@ -1,4 +1,4 @@
-import { Music2, FileMusic, Hand, Waves, Youtube, Sparkles, Guitar, BookOpen } from 'lucide-react'
+import { Music2, FileMusic, Hand, Waves, Youtube, Sparkles, Guitar, BookOpen, Fingerprint } from 'lucide-react'
 import { useSongStore } from '../../store/songStore'
 import { PanelId } from '../../types/song'
 
@@ -9,7 +9,8 @@ const NAV_ITEMS: { id: PanelId; icon: React.ReactNode; label: string }[] = [
   { id: 'chords', icon: <Hand size={20} />, label: 'Chords' },
   { id: 'strumming', icon: <Waves size={20} />, label: 'Strumming' },
   { id: 'videos', icon: <Youtube size={20} />, label: 'Videos' },
-  { id: 'theory', icon: <BookOpen size={20} />, label: 'Theory' }
+  { id: 'theory', icon: <BookOpen size={20} />, label: 'Theory' },
+  { id: 'fingerpicking', icon: <Fingerprint size={20} />, label: 'Fingerpicking' }
 ]
 
 export default function Sidebar() {

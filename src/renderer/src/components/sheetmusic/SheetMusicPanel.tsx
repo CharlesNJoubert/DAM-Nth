@@ -13,7 +13,19 @@ export default function SheetMusicPanel() {
         </p>
       </div>
 
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-white rounded-xl p-6 shadow-lg overflow-x-auto">
+        {/* Chord name labels above each measure — measure width 240px, first starts at x=20 */}
+        <div className="flex mb-1" style={{ paddingLeft: 20 }}>
+          {song.measures.map((measure) => (
+            <div
+              key={measure.id}
+              className="text-sm font-bold text-indigo-600 shrink-0"
+              style={{ width: 240 }}
+            >
+              {measure.chordName}
+            </div>
+          ))}
+        </div>
         <StaveRenderer measures={song.measures} timeSignature={song.timeSignature} />
       </div>
 

@@ -13,7 +13,18 @@ export default function TabsPanel() {
         </p>
       </div>
 
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-white rounded-xl p-6 shadow-lg overflow-x-auto">
+        <div className="flex mb-1" style={{ paddingLeft: 20 }}>
+          {song.measures.map((measure) => (
+            <div
+              key={measure.id}
+              className="text-sm font-bold text-indigo-600 shrink-0"
+              style={{ width: 240 }}
+            >
+              {measure.chordName}
+            </div>
+          ))}
+        </div>
         <TabRenderer measures={song.measures} timeSignature={song.timeSignature} />
       </div>
 

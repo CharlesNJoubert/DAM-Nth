@@ -115,5 +115,58 @@ export const CHORD_LIBRARY: Record<string, ChordDef> = {
       { string: 2, fret: 1, finger: 1 },
       { string: 1, fret: 0, finger: 0 }
     ]
+  },
+  Cmaj7: {
+    name: 'Cmaj7',
+    displayName: 'C major 7',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: -1, finger: 0 },
+      { string: 5, fret: 3, finger: 3 },
+      { string: 4, fret: 2, finger: 2 },
+      { string: 3, fret: 0, finger: 0 },
+      { string: 2, fret: 0, finger: 0 },
+      { string: 1, fret: 0, finger: 0 }
+    ]
+  },
+  'D/F#': {
+    name: 'D/F#',
+    displayName: 'D / F# bass',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: 2, finger: 1 },
+      { string: 5, fret: -1, finger: 0 },
+      { string: 4, fret: 0, finger: 0 },
+      { string: 3, fret: 2, finger: 2 },
+      { string: 2, fret: 3, finger: 4 },
+      { string: 1, fret: 2, finger: 3 }
+    ]
+  },
+  Bm: {
+    name: 'Bm',
+    displayName: 'B minor',
+    baseFret: 2,
+    barre: 2,
+    fingers: [
+      { string: 6, fret: -1, finger: 0 },
+      { string: 5, fret: 2, finger: 1 },
+      { string: 4, fret: 4, finger: 3 },
+      { string: 3, fret: 4, finger: 4 },
+      { string: 2, fret: 3, finger: 2 },
+      { string: 1, fret: 2, finger: 1 }
+    ]
+  },
+  Bm7: {
+    name: 'Bm7',
+    displayName: 'B minor 7',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: -1, finger: 0 },
+      { string: 5, fret: 2, finger: 1 },
+      { string: 4, fret: 0, finger: 0 },
+      { string: 3, fret: 2, finger: 2 },
+      { string: 2, fret: 0, finger: 0 },
+      { string: 1, fret: 2, finger: 3 }
+    ]
   }
 }

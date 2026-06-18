@@ -18,7 +18,7 @@ interface SongStore {
 export const useSongStore = create<SongStore>((set) => ({
   song: DEFAULT_SONG,
   activePanel: 'lyrics',
-  selectedChord: 'Am',
+  selectedChord: 'Em',
 
   setActivePanel: (panel) => set({ activePanel: panel }),
 

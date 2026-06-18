@@ -7,6 +7,7 @@ import {
   FIFTHS_FLOW
 } from '../../data/theoryData'
 import ChordDiagram from '../chords/ChordDiagram'
+import ReferencePoster from './ReferencePoster'
 
 // Drop a poster image at src/renderer/src/assets/theory-poster.{png,jpg,jpeg,webp}
 // and it will appear in the Reference Poster section. No build error if absent.
@@ -143,27 +144,8 @@ export default function TheoryPanel() {
         </div>
       </section>
 
-      {/* Reference poster */}
-      <section>
-        <h2 className="text-lg font-semibold text-gray-100 mb-1">Reference Poster</h2>
-        {posterUrl ? (
-          <div className="bg-white rounded-xl p-2 shadow-lg overflow-x-auto">
-            <img src={posterUrl} alt="Guitar theory reference" className="max-w-none" />
-          </div>
-        ) : (
-          <div className="bg-gray-800 border border-dashed border-gray-600 rounded-xl p-6">
-            <p className="text-sm text-gray-400 leading-relaxed">
-              Drop the full cheat-sheet image at{' '}
-              <code className="text-indigo-300 bg-gray-900 px-1.5 py-0.5 rounded text-xs">
-                src/renderer/src/assets/theory-poster.png
-              </code>{' '}
-              (or .jpg/.webp) and rebuild — it will display here, full-size and scrollable.
-              The fretboard, scales, chord charts and circle of fifths from that poster are
-              already distilled into the interactive sections above.
-            </p>
-          </div>
-        )}
-      </section>
+      {/* Reference poster — import or paste your cheat-sheet image */}
+      <ReferencePoster defaultUrl={posterUrl} />
     </div>
   )
 }

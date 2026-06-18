@@ -1,5 +1,5 @@
 import { ipcMain, shell } from 'electron'
-import Anthropic from '@anthropic-ai/sdk'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 
 interface LyricRequest {
   context: string
@@ -11,8 +11,8 @@ interface LyricRequest {
 
 function buildPrompt(req: LyricRequest): string {
   const moods = req.moods?.length ? req.moods.join(', ') : 'melancholic, longing'
-  const key = req.key || 'Am'
-  const tempo = req.tempo || 72
+  const key = req.key || 'Em'
+  const tempo = req.tempo || 80
 
   return `You are a compassionate lament song lyricist with deep emotional sensitivity. The song is in the key of ${key}, tempo ${tempo} BPM.
 Mood: ${moods}.
@@ -33,31 +33,28 @@ export function registerIpcHandlers(): void {
   })
 
   ipcMain.handle('lyrics:generate', async (event, req: LyricRequest) => {
-    const apiKey = process.env.ANTHROPIC_API_KEY
+    const apiKey = process.env.GOOGLE_API_KEY
     if (!apiKey) {
       event.sender.send('lyrics:chunk', {
         type: 'error',
-        error: 'ANTHROPIC_API_KEY not set. Copy .env.example to .env and add your key.'
+        error: 'GOOGLE_API_KEY not set. Get a free key at aistudio.google.com, then add it to your .env file.'
       })
       return
     }
 
-    const client = new Anthropic({ apiKey })
+    const genAI = new GoogleGenerativeAI(apiKey)
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
     try {
-      const stream = client.messages.stream({
-        model: 'claude-sonnet-4-5',
-        max_tokens: 1024,
-        messages: [{ role: 'user', content: buildPrompt(req) }]
-      })
+      const result = await model.generateContentStream(buildPrompt(req))
 
-      stream.on('text', (text: string) => {
-        if (!event.sender.isDestroyed()) {
+      for await (const chunk of result.stream) {
+        const text = chunk.text()
+        if (text && !event.sender.isDestroyed()) {
           event.sender.send('lyrics:chunk', { type: 'delta', text })
         }
-      })
+      }
 
-      await stream.finalMessage()
       event.sender.send('lyrics:chunk', { type: 'done' })
     } catch (err) {
       event.sender.send('lyrics:chunk', {

@@ -1,11 +1,22 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 import { SongData, PanelId, StrummingPattern } from '../types/song'
-import { DEFAULT_SONG } from '../data/defaultSong'
+import { DEFAULT_SONG, createBlankSong } from '../data/defaultSong'
 
 interface SongStore {
+  songs: SongData[]
+  activeSongId: string
   song: SongData
   activePanel: PanelId
   selectedChord: string
+
+  // Song list management
+  switchSong: (id: string) => void
+  createSong: () => void
+  duplicateSong: (id: string) => void
+  deleteSong: (id: string) => void
+
+  // Active song mutations
   setActivePanel: (panel: PanelId) => void
   setLyrics: (lyrics: string) => void
   setTitle: (title: string) => void
@@ -15,44 +26,94 @@ interface SongStore {
   addStrummingPattern: (pattern: StrummingPattern) => void
 }
 
-export const useSongStore = create<SongStore>((set) => ({
-  song: DEFAULT_SONG,
-  activePanel: 'lyrics',
-  selectedChord: 'Em',
+function patchActive(songs: SongData[], id: string, patch: Partial<SongData>): SongData[] {
+  return songs.map((s) => (s.id === id ? { ...s, ...patch } : s))
+}
 
-  setActivePanel: (panel) => set({ activePanel: panel }),
+export const useSongStore = create<SongStore>()(
+  persist(
+    (set, get) => ({
+      songs: [DEFAULT_SONG],
+      activeSongId: DEFAULT_SONG.id,
+      song: DEFAULT_SONG,
+      activePanel: 'lyrics' as PanelId,
+      selectedChord: 'Em',
 
-  setLyrics: (lyrics) =>
-    set((state) => ({ song: { ...state.song, lyrics } })),
+      switchSong: (id) => {
+        const song = get().songs.find((s) => s.id === id)
+        if (song) set({ activeSongId: id, song })
+      },
 
-  setTitle: (title) =>
-    set((state) => ({ song: { ...state.song, title } })),
+      createSong: () => {
+        const id = Date.now().toString(36)
+        const blank = createBlankSong(id)
+        set((state) => ({
+          songs: [...state.songs, blank],
+          activeSongId: id,
+          song: blank
+        }))
+      },
 
-  setSelectedChord: (chord) => set({ selectedChord: chord }),
+      duplicateSong: (id) => {
+        const src = get().songs.find((s) => s.id === id)
+        if (!src) return
+        const newId = Date.now().toString(36)
+        const copy: SongData = { ...src, id: newId, title: `${src.title} (copy)` }
+        set((state) => ({
+          songs: [...state.songs, copy],
+          activeSongId: newId,
+          song: copy
+        }))
+      },
 
-  addVideoId: (videoId) =>
-    set((state) => ({
-      song: {
-        ...state.song,
-        videoIds: state.song.videoIds.includes(videoId)
-          ? state.song.videoIds
-          : [...state.song.videoIds, videoId]
-      }
-    })),
+      deleteSong: (id) => {
+        const { songs, activeSongId } = get()
+        if (songs.length === 1) return // always keep at least one
+        const next = songs.filter((s) => s.id !== id)
+        const nextActive = activeSongId === id ? next[0] : next.find((s) => s.id === activeSongId)!
+        set({ songs: next, activeSongId: nextActive.id, song: nextActive })
+      },
 
-  removeVideoId: (videoId) =>
-    set((state) => ({
-      song: {
-        ...state.song,
-        videoIds: state.song.videoIds.filter((id) => id !== videoId)
-      }
-    })),
+      setActivePanel: (panel) => set({ activePanel: panel }),
+      setSelectedChord: (chord) => set({ selectedChord: chord }),
 
-  addStrummingPattern: (pattern) =>
-    set((state) => ({
-      song: {
-        ...state.song,
-        strummingPatterns: [...state.song.strummingPatterns, pattern]
-      }
-    }))
-}))
+      setTitle: (title) =>
+        set((state) => {
+          const song = { ...state.song, title }
+          return { song, songs: patchActive(state.songs, state.activeSongId, { title }) }
+        }),
+
+      setLyrics: (lyrics) =>
+        set((state) => {
+          const song = { ...state.song, lyrics }
+          return { song, songs: patchActive(state.songs, state.activeSongId, { lyrics }) }
+        }),
+
+      addVideoId: (videoId) =>
+        set((state) => {
+          if (state.song.videoIds.includes(videoId)) return {}
+          const videoIds = [...state.song.videoIds, videoId]
+          const song = { ...state.song, videoIds }
+          return { song, songs: patchActive(state.songs, state.activeSongId, { videoIds }) }
+        }),
+
+      removeVideoId: (videoId) =>
+        set((state) => {
+          const videoIds = state.song.videoIds.filter((v) => v !== videoId)
+          const song = { ...state.song, videoIds }
+          return { song, songs: patchActive(state.songs, state.activeSongId, { videoIds }) }
+        }),
+
+      addStrummingPattern: (pattern) =>
+        set((state) => {
+          const strummingPatterns = [...state.song.strummingPatterns, pattern]
+          const song = { ...state.song, strummingPatterns }
+          return { song, songs: patchActive(state.songs, state.activeSongId, { strummingPatterns }) }
+        })
+    }),
+    {
+      name: 'lament-songs',
+      partialize: (state) => ({ songs: state.songs, activeSongId: state.activeSongId })
+    }
+  )
+)

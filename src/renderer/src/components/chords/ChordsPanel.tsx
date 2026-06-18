@@ -1,5 +1,6 @@
 import { useSongStore } from '../../store/songStore'
 import { CHORD_LIBRARY } from '../../data/chordLibrary'
+import { ELECTRIC_VOICINGS } from '../../data/theoryData'
 import ChordCard from './ChordCard'
 import ChordDiagram from './ChordDiagram'
 
@@ -7,6 +8,7 @@ export default function ChordsPanel() {
   const selectedChord = useSongStore((s) => s.selectedChord)
   const setSelectedChord = useSongStore((s) => s.setSelectedChord)
   const chordProgression = useSongStore((s) => s.song.chordProgression)
+  const electricSwap = ELECTRIC_VOICINGS.find((v) => v.openChord === selectedChord)
 
   const selected = CHORD_LIBRARY[selectedChord]
 
@@ -124,6 +126,24 @@ export default function ChordsPanel() {
                 <span className="font-semibold">Barre chord</span> — Press finger 1 flat
                 across all strings at fret {selected.barre}.
               </p>
+            </div>
+          )}
+
+          {electricSwap && CHORD_LIBRARY[electricSwap.electricChord] && (
+            <div className="mt-4 w-full bg-amber-950/40 border border-amber-700/40 rounded-xl p-3">
+              <div className="text-xs text-amber-300 font-semibold mb-1">⚡ Try on Electric</div>
+              <div className="text-xs text-gray-400 leading-relaxed mb-3">{electricSwap.why}</div>
+              <div className="flex flex-col items-center">
+                <div className="bg-gray-900 rounded-lg p-2">
+                  <ChordDiagram chord={CHORD_LIBRARY[electricSwap.electricChord]} size={1.6} />
+                </div>
+                <button
+                  onClick={() => setSelectedChord(electricSwap.electricChord)}
+                  className="mt-2 text-xs text-amber-300 hover:text-amber-100 underline transition-colors"
+                >
+                  Show {electricSwap.electricChord} fingering →
+                </button>
+              </div>
             </div>
           )}
         </div>

@@ -14,31 +14,16 @@ export default function TabsPanel() {
       </div>
 
       <div className="bg-white rounded-xl p-6 shadow-lg overflow-x-auto">
-        <div className="flex mb-1" style={{ paddingLeft: 20 }}>
-          {song.measures.map((measure) => (
-            <div
-              key={measure.id}
-              className="text-sm font-bold text-indigo-600 shrink-0"
-              style={{ width: 240 }}
-            >
-              {measure.chordName}
-            </div>
-          ))}
-        </div>
         <TabRenderer measures={song.measures} timeSignature={song.timeSignature} />
       </div>
 
       <div className="mt-6 grid grid-cols-4 gap-3">
-        {song.measures.map((measure, i) => (
+        {song.measures.filter((m) => m.sectionLabel).map((measure, i) => (
           <div key={measure.id} className="bg-gray-800 rounded-lg p-3">
-            <div className="text-xs text-gray-400 mb-1">Bar {i + 1}</div>
-            <div className="text-lg font-bold text-indigo-400">{measure.chordName}</div>
-            <div className="mt-2 space-y-0.5">
-              {measure.tabNotes.map((note, j) => (
-                <div key={j} className="text-xs text-gray-500 font-mono">
-                  {note.positions.map((p) => `${p.str}:${p.fret}`).join(' ')}
-                </div>
-              ))}
+            <div className="text-xs text-indigo-400 font-semibold mb-1">{measure.sectionLabel}</div>
+            <div className="text-base font-bold text-gray-100">{measure.chordName}</div>
+            <div className="mt-1 text-xs text-gray-500 font-mono">
+              {measure.tabNotes.map((n) => n.positions.map((p) => `${p.str}:${p.fret}`).join(' ')).join(' | ')}
             </div>
           </div>
         ))}

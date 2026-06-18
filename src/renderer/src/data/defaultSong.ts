@@ -1,6 +1,7 @@
 import { SongData } from '../types/song'
 
 export const DEFAULT_SONG: SongData = {
+  id: 'default',
   title: 'How Long (Psalm 13)',
   key: 'Em',
   timeSignature: [4, 4],
@@ -8,14 +9,12 @@ export const DEFAULT_SONG: SongData = {
   chordProgression: ['Em', 'Cmaj7', 'G', 'D/F#'],
   videoIds: [],
   measures: [
+    // ── VERSE ──────────────────────────────────────────
     {
-      id: 'm1',
-      chordName: 'Em',
+      id: 'm-v1', chordName: 'Em', sectionLabel: 'Verse',
       notesVF: [
-        { keys: ['e/3'], duration: 'q' },
-        { keys: ['g/3'], duration: 'q' },
-        { keys: ['b/3'], duration: 'q' },
-        { keys: ['e/4'], duration: 'q' }
+        { keys: ['e/3'], duration: 'q' }, { keys: ['g/3'], duration: 'q' },
+        { keys: ['b/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
       ],
       tabNotes: [
         { positions: [{ str: 6, fret: 0 }], duration: 'q' },
@@ -25,13 +24,10 @@ export const DEFAULT_SONG: SongData = {
       ]
     },
     {
-      id: 'm2',
-      chordName: 'Cmaj7',
+      id: 'm-v2', chordName: 'Cmaj7',
       notesVF: [
-        { keys: ['c/3'], duration: 'q' },
-        { keys: ['e/3'], duration: 'q' },
-        { keys: ['g/3'], duration: 'q' },
-        { keys: ['b/3'], duration: 'q' }
+        { keys: ['c/3'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['b/3'], duration: 'q' }
       ],
       tabNotes: [
         { positions: [{ str: 5, fret: 3 }], duration: 'q' },
@@ -41,13 +37,10 @@ export const DEFAULT_SONG: SongData = {
       ]
     },
     {
-      id: 'm3',
-      chordName: 'G',
+      id: 'm-v3', chordName: 'G',
       notesVF: [
-        { keys: ['g/2'], duration: 'q' },
-        { keys: ['b/2'], duration: 'q' },
-        { keys: ['g/3'], duration: 'q' },
-        { keys: ['d/4'], duration: 'q' }
+        { keys: ['g/2'], duration: 'q' }, { keys: ['b/2'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['d/4'], duration: 'q' }
       ],
       tabNotes: [
         { positions: [{ str: 6, fret: 3 }], duration: 'q' },
@@ -57,19 +50,165 @@ export const DEFAULT_SONG: SongData = {
       ]
     },
     {
-      id: 'm4',
-      chordName: 'D/F#',
+      id: 'm-v4', chordName: 'D/F#',
       notesVF: [
-        { keys: ['f#/2'], duration: 'q' },
-        { keys: ['d/3'], duration: 'q' },
-        { keys: ['a/3'], duration: 'q' },
-        { keys: ['d/4'], duration: 'q' }
+        { keys: ['f/2'], duration: 'q' }, { keys: ['d/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['d/4'], duration: 'q' }
       ],
       tabNotes: [
         { positions: [{ str: 6, fret: 2 }], duration: 'q' },
         { positions: [{ str: 4, fret: 0 }], duration: 'q' },
         { positions: [{ str: 3, fret: 2 }], duration: 'q' },
         { positions: [{ str: 2, fret: 3 }], duration: 'q' }
+      ]
+    },
+
+    // ── PRE-CHORUS ──────────────────────────────────────
+    {
+      id: 'm-pc1', chordName: 'Am', sectionLabel: 'Pre-Chorus',
+      notesVF: [
+        { keys: ['a/2'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'm-pc2', chordName: 'Bm',
+      notesVF: [
+        { keys: ['b/2'], duration: 'q' }, { keys: ['f/3'], duration: 'q' },
+        { keys: ['b/3'], duration: 'q' }, { keys: ['d/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 4 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 4 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 3 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'm-pc3', chordName: 'C',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'm-pc4', chordName: 'D',
+      notesVF: [
+        { keys: ['d/3'], duration: 'q' }, { keys: ['a/3'], duration: 'q' },
+        { keys: ['d/4'], duration: 'q' }, { keys: ['f/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 4, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 2 }], duration: 'q' }
+      ]
+    },
+
+    // ── CHORUS ──────────────────────────────────────────
+    {
+      id: 'm-c1', chordName: 'G', sectionLabel: 'Chorus',
+      notesVF: [
+        { keys: ['g/2'], duration: 'q' }, { keys: ['b/2'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['d/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 6, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 5, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 3 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'm-c2', chordName: 'D',
+      notesVF: [
+        { keys: ['d/3'], duration: 'q' }, { keys: ['a/3'], duration: 'q' },
+        { keys: ['d/4'], duration: 'q' }, { keys: ['f/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 4, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 2 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'm-c3', chordName: 'Em',
+      notesVF: [
+        { keys: ['e/3'], duration: 'q' }, { keys: ['g/3'], duration: 'q' },
+        { keys: ['b/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 6, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 0 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'm-c4', chordName: 'C',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+
+    // ── TURNAROUND ──────────────────────────────────────
+    {
+      id: 'm-t1', chordName: 'Am', sectionLabel: 'Turnaround',
+      notesVF: [
+        { keys: ['a/2'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'm-t2', chordName: 'B7',
+      notesVF: [
+        { keys: ['b/2'], duration: 'q' }, { keys: ['d/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['b/3'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 1 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 2 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'm-t3', chordName: 'Em',
+      notesVF: [
+        { keys: ['e/3'], duration: 'q' }, { keys: ['g/3'], duration: 'q' },
+        { keys: ['b/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 6, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 0 }], duration: 'q' }
       ]
     }
   ],
@@ -149,6 +288,74 @@ So I will sing the only song I know
 Outro:
 He has been good to me
 He has been good to me`
+}
+
+export function createBlankSong(id: string): SongData {
+  return {
+    id,
+    title: 'Untitled Song',
+    key: 'Em',
+    timeSignature: [4, 4],
+    tempo: 80,
+    chordProgression: ['Em', 'G', 'D', 'C'],
+    videoIds: [],
+    measures: [
+      {
+        id: `${id}-m1`, chordName: 'Em', sectionLabel: 'Verse',
+        notesVF: [
+          { keys: ['e/3'], duration: 'q' }, { keys: ['g/3'], duration: 'q' },
+          { keys: ['b/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
+        ],
+        tabNotes: [
+          { positions: [{ str: 6, fret: 0 }], duration: 'q' },
+          { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+          { positions: [{ str: 2, fret: 0 }], duration: 'q' },
+          { positions: [{ str: 1, fret: 0 }], duration: 'q' }
+        ]
+      },
+      {
+        id: `${id}-m2`, chordName: 'G',
+        notesVF: [
+          { keys: ['g/2'], duration: 'q' }, { keys: ['b/2'], duration: 'q' },
+          { keys: ['g/3'], duration: 'q' }, { keys: ['d/4'], duration: 'q' }
+        ],
+        tabNotes: [
+          { positions: [{ str: 6, fret: 3 }], duration: 'q' },
+          { positions: [{ str: 5, fret: 2 }], duration: 'q' },
+          { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+          { positions: [{ str: 1, fret: 3 }], duration: 'q' }
+        ]
+      },
+      {
+        id: `${id}-m3`, chordName: 'D',
+        notesVF: [
+          { keys: ['d/3'], duration: 'q' }, { keys: ['a/3'], duration: 'q' },
+          { keys: ['d/4'], duration: 'q' }, { keys: ['f/4'], duration: 'q' }
+        ],
+        tabNotes: [
+          { positions: [{ str: 4, fret: 0 }], duration: 'q' },
+          { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+          { positions: [{ str: 2, fret: 3 }], duration: 'q' },
+          { positions: [{ str: 1, fret: 2 }], duration: 'q' }
+        ]
+      },
+      {
+        id: `${id}-m4`, chordName: 'C',
+        notesVF: [
+          { keys: ['c/3'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+          { keys: ['g/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+        ],
+        tabNotes: [
+          { positions: [{ str: 5, fret: 3 }], duration: 'q' },
+          { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+          { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+          { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+        ]
+      }
+    ],
+    strummingPatterns: DEFAULT_SONG.strummingPatterns,
+    lyrics: ''
+  }
 }
 
 export const SUGGESTED_SEARCHES = [

@@ -14,19 +14,11 @@ export default function SheetMusicPanel() {
       </div>
 
       <div className="bg-white rounded-xl p-6 shadow-lg overflow-x-auto">
-        {/* Chord name labels above each measure — measure width 240px, first starts at x=20 */}
-        <div className="flex mb-1" style={{ paddingLeft: 20 }}>
-          {song.measures.map((measure) => (
-            <div
-              key={measure.id}
-              className="text-sm font-bold text-indigo-600 shrink-0"
-              style={{ width: 240 }}
-            >
-              {measure.chordName}
-            </div>
-          ))}
-        </div>
-        <StaveRenderer measures={song.measures} timeSignature={song.timeSignature} />
+        <StaveRenderer
+          measures={song.measures}
+          timeSignature={song.timeSignature}
+          songKey={song.key}
+        />
       </div>
 
       <div className="mt-6 bg-gray-800 rounded-xl p-4">
@@ -45,8 +37,7 @@ export default function SheetMusicPanel() {
 
       <div className="mt-4 bg-gray-800 rounded-xl p-4">
         <p className="text-xs text-gray-500 leading-relaxed">
-          Standard musical notation for the Am–C–G–F lament progression.
-          Each measure shows the melody notes above with chord labels.
+          Standard notation for {song.title}. Section labels appear above each group of measures in indigo.
         </p>
       </div>
     </div>

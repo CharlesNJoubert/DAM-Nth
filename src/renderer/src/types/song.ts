@@ -1,6 +1,7 @@
 export type PanelId = 'tabs' | 'sheet' | 'chords' | 'strumming' | 'videos' | 'lyrics' | 'theory'
 
 export interface SongData {
+  id: string
   title: string
   key: string
   timeSignature: [number, number]
@@ -17,6 +18,7 @@ export interface Measure {
   chordName: string
   notesVF: NoteVF[]
   tabNotes: TabNote[]
+  sectionLabel?: string
 }
 
 export interface NoteVF {

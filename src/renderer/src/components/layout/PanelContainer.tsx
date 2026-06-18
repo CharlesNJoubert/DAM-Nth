@@ -5,6 +5,7 @@ import ChordsPanel from '../chords/ChordsPanel'
 import StrummingPanel from '../strumming/StrummingPanel'
 import VideosPanel from '../videos/VideosPanel'
 import LyricsPanel from '../lyrics/LyricsPanel'
+import TheoryPanel from '../theory/TheoryPanel'
 
 export default function PanelContainer() {
   const activePanel = useSongStore((s) => s.activePanel)
@@ -17,6 +18,7 @@ export default function PanelContainer() {
       {activePanel === 'chords' && <ChordsPanel />}
       {activePanel === 'strumming' && <StrummingPanel />}
       {activePanel === 'videos' && <VideosPanel />}
+      {activePanel === 'theory' && <TheoryPanel />}
     </main>
   )
 }

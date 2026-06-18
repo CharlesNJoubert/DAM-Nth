@@ -168,5 +168,83 @@ export const CHORD_LIBRARY: Record<string, ChordDef> = {
       { string: 2, fret: 0, finger: 0 },
       { string: 1, fret: 2, finger: 3 }
     ]
+  },
+  Em7: {
+    name: 'Em7',
+    displayName: 'E minor 7',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: 0, finger: 0 },
+      { string: 5, fret: 2, finger: 1 },
+      { string: 4, fret: 2, finger: 2 },
+      { string: 3, fret: 0, finger: 0 },
+      { string: 2, fret: 3, finger: 3 },
+      { string: 1, fret: 0, finger: 0 }
+    ]
+  },
+  Am7: {
+    name: 'Am7',
+    displayName: 'A minor 7',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: -1, finger: 0 },
+      { string: 5, fret: 0, finger: 0 },
+      { string: 4, fret: 2, finger: 2 },
+      { string: 3, fret: 0, finger: 0 },
+      { string: 2, fret: 1, finger: 1 },
+      { string: 1, fret: 0, finger: 0 }
+    ]
+  },
+  Cadd9: {
+    name: 'Cadd9',
+    displayName: 'C add 9',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: -1, finger: 0 },
+      { string: 5, fret: 3, finger: 2 },
+      { string: 4, fret: 2, finger: 1 },
+      { string: 3, fret: 0, finger: 0 },
+      { string: 2, fret: 3, finger: 3 },
+      { string: 1, fret: 0, finger: 0 }
+    ]
+  },
+  Gmaj7: {
+    name: 'Gmaj7',
+    displayName: 'G major 7',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: 3, finger: 3 },
+      { string: 5, fret: 2, finger: 2 },
+      { string: 4, fret: 0, finger: 0 },
+      { string: 3, fret: 0, finger: 0 },
+      { string: 2, fret: 0, finger: 0 },
+      { string: 1, fret: 2, finger: 1 }
+    ]
+  },
+  Dsus4: {
+    name: 'Dsus4',
+    displayName: 'D suspended 4',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: -1, finger: 0 },
+      { string: 5, fret: -1, finger: 0 },
+      { string: 4, fret: 0, finger: 0 },
+      { string: 3, fret: 2, finger: 1 },
+      { string: 2, fret: 3, finger: 2 },
+      { string: 1, fret: 3, finger: 3 }
+    ]
+  },
+  B7: {
+    name: 'B7',
+    displayName: 'B dominant 7',
+    baseFret: 1,
+    fingers: [
+      { string: 6, fret: -1, finger: 0 },
+      { string: 5, fret: 2, finger: 2 },
+      { string: 4, fret: 1, finger: 1 },
+      { string: 3, fret: 2, finger: 3 },
+      { string: 2, fret: 0, finger: 0 },
+      { string: 1, fret: 2, finger: 4 }
+    ]
   }
 }

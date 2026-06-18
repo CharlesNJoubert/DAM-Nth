@@ -17,8 +17,8 @@ Pre-loaded with "How Long (Psalm 13)" in E minor — Em · Cmaj7 · G · D/F# at
 
 ```bash
 # 1. Clone
-git clone https://github.com/charlesnjoubert/dam-nth.git
-cd dam-nth
+git clone https://github.com/CharlesNJoubert/lament-songwriter.git
+cd lament-songwriter
 
 # 2. Install dependencies
 npm install

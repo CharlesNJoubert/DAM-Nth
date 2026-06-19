@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { SongData, PanelId, StrummingPattern } from '../types/song'
-import { DEFAULT_SONG, createBlankSong } from '../data/defaultSong'
+import { DEFAULT_SONG, THE_LIST_SONG, createBlankSong } from '../data/defaultSong'
 
 interface SongStore {
   songs: SongData[]
@@ -33,7 +33,7 @@ function patchActive(songs: SongData[], id: string, patch: Partial<SongData>): S
 export const useSongStore = create<SongStore>()(
   persist(
     (set, get) => ({
-      songs: [DEFAULT_SONG],
+      songs: [DEFAULT_SONG, THE_LIST_SONG],
       activeSongId: DEFAULT_SONG.id,
       song: DEFAULT_SONG,
       activePanel: 'lyrics' as PanelId,
@@ -113,6 +113,17 @@ export const useSongStore = create<SongStore>()(
     }),
     {
       name: 'lament-songs',
+      version: 2,
+      migrate: (persisted: unknown) => {
+        const state = persisted as { songs?: SongData[]; activeSongId?: string }
+        const songs = state.songs ?? [DEFAULT_SONG]
+        const presets = [DEFAULT_SONG, THE_LIST_SONG]
+        const merged = [...songs]
+        for (const preset of presets) {
+          if (!merged.find((s) => s.id === preset.id)) merged.splice(presets.indexOf(preset), 0, preset)
+        }
+        return { ...state, songs: merged }
+      },
       partialize: (state) => ({ songs: state.songs, activeSongId: state.activeSongId })
     }
   )

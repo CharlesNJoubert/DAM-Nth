@@ -358,6 +358,284 @@ export function createBlankSong(id: string): SongData {
   }
 }
 
+export const THE_LIST_SONG: SongData = {
+  id: 'the-list',
+  title: 'The List',
+  key: 'Am',
+  timeSignature: [4, 4],
+  tempo: 72,
+  chordProgression: ['Am', 'Fmaj7', 'C', 'G'],
+  videoIds: [],
+  measures: [
+    // ── VERSE 1 ─────────────────────────────────────────
+    {
+      id: 'tl-v1', chordName: 'Am', sectionLabel: 'Verse 1',
+      notesVF: [
+        { keys: ['a/2'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v2', chordName: 'Fmaj7',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['f/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 4, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 0 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v3', chordName: 'C',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v4', chordName: 'G',
+      notesVF: [
+        { keys: ['g/2'], duration: 'q' }, { keys: ['b/2'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['d/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 6, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 5, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 3 }], duration: 'q' }
+      ]
+    },
+
+    // ── VERSE 2 ─────────────────────────────────────────
+    {
+      id: 'tl-v5', chordName: 'Am', sectionLabel: 'Verse 2',
+      notesVF: [
+        { keys: ['a/2'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v6', chordName: 'Fmaj7',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['f/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 4, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 0 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v7', chordName: 'C',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v8', chordName: 'G',
+      notesVF: [
+        { keys: ['g/2'], duration: 'q' }, { keys: ['b/2'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['d/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 6, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 5, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 3 }], duration: 'q' }
+      ]
+    },
+
+    // ── VERSE 3 ─────────────────────────────────────────
+    {
+      id: 'tl-v9', chordName: 'Am', sectionLabel: 'Verse 3',
+      notesVF: [
+        { keys: ['a/2'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v10', chordName: 'Fmaj7',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['f/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 4, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 0 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v11', chordName: 'Am',
+      notesVF: [
+        { keys: ['a/2'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-v12', chordName: 'Em',
+      notesVF: [
+        { keys: ['e/3'], duration: 'q' }, { keys: ['g/3'], duration: 'q' },
+        { keys: ['b/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 6, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 0 }], duration: 'q' }
+      ]
+    },
+
+    // ── TURN (Verse 4) ───────────────────────────────────
+    {
+      id: 'tl-t1', chordName: 'Fmaj7', sectionLabel: 'The Turn',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['f/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['e/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 4, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 0 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-t2', chordName: 'C',
+      notesVF: [
+        { keys: ['c/3'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-t3', chordName: 'G',
+      notesVF: [
+        { keys: ['g/2'], duration: 'q' }, { keys: ['b/2'], duration: 'q' },
+        { keys: ['g/3'], duration: 'q' }, { keys: ['d/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 6, fret: 3 }], duration: 'q' },
+        { positions: [{ str: 5, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 1, fret: 3 }], duration: 'q' }
+      ]
+    },
+    {
+      id: 'tl-t4', chordName: 'Am',
+      notesVF: [
+        { keys: ['a/2'], duration: 'q' }, { keys: ['e/3'], duration: 'q' },
+        { keys: ['a/3'], duration: 'q' }, { keys: ['c/4'], duration: 'q' }
+      ],
+      tabNotes: [
+        { positions: [{ str: 5, fret: 0 }], duration: 'q' },
+        { positions: [{ str: 4, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 3, fret: 2 }], duration: 'q' },
+        { positions: [{ str: 2, fret: 1 }], duration: 'q' }
+      ]
+    }
+  ],
+  strummingPatterns: [
+    {
+      name: 'Travis Picking (Verse)',
+      beats: [
+        { subdivision: '8', direction: 'down', accent: 'accent' },
+        { subdivision: '8', direction: 'up', accent: 'normal' },
+        { subdivision: '8', direction: 'down', accent: 'normal' },
+        { subdivision: '8', direction: 'up', accent: 'normal' },
+        { subdivision: '8', direction: 'down', accent: 'accent' },
+        { subdivision: '8', direction: 'up', accent: 'normal' },
+        { subdivision: '8', direction: 'down', accent: 'normal' },
+        { subdivision: '8', direction: 'up', accent: 'normal' }
+      ]
+    },
+    {
+      name: 'Slow Lament (D — DU)',
+      beats: [
+        { subdivision: '4', direction: 'down', accent: 'accent' },
+        { subdivision: '4', direction: 'rest', accent: 'normal' },
+        { subdivision: '8', direction: 'down', accent: 'normal' },
+        { subdivision: '8', direction: 'up', accent: 'normal' }
+      ]
+    }
+  ],
+  lyrics: `The List
+
+Verse 1:
+Woke up already tired of the day
+The coffee's cold, the inbox won't behave
+Someone parked across my drive again
+And I have not even started yet
+
+Verse 2:
+The dog got sick across the kitchen floor
+The bank called twice, I didn't answer for
+A reason I can't name out loud
+The house still feels too quiet now
+
+Verse 3:
+And underneath the parking and the post
+Is the one thing I keep counting most
+The empty chair, the unmade bed
+The prayers I start and leave unsaid
+
+Verse 4 (The Turn):
+So I wrote it down and read it back to you
+The whole ridiculous and aching list
+And somewhere round the cold coffee
+I caught myself, I almost laughed
+It didn't fix a single thing
+But it loosened how it held`
+}
+
 export const SUGGESTED_SEARCHES = [
   'Em Travis fingerpicking lament guitar tutorial',
   'E minor Travis picking beginner guitar',
